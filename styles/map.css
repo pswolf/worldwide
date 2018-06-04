@@ -1,0 +1,19 @@
+#mapspace{
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height: 60%;
+  border-width: thin;
+  border-style: dotted;
+}
+
+.land{
+  fill: white;
+  stroke: grey;
+  stroke-opacity: 1;
+  stroke-width:0.5;
+  transition: 1.0s;
+}
+.land:hover{
+  fill: black;
+}

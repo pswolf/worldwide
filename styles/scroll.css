@@ -1,0 +1,19 @@
+body{
+  text-align: center;
+}
+.center{
+  margin-left: auto;
+  margin-right: auto;
+
+}
+#focus{
+  border-top-style: solid;
+  border-bottom-style: solid;
+}
+
+#select{
+  list-style-type: none;
+}
+#select li:nth-child(n+4){
+  display: none;
+}

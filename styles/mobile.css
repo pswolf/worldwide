@@ -1,0 +1,96 @@
+html, body {
+  height:100%;
+  font-family: "Century Gothic"
+}
+body{
+  margin: 0 0 0 0;
+}
+#container{
+  display: grid;
+  height: 100%;
+  grid-template-columns: 10% 40% 40% 10%;
+  grid-template-rows: 5% 20% 55% 20%;
+  background-color: white;
+  color: black;
+  align-content: center;
+  grid-template-areas:
+    'Info Z1S2 Z1S3 Status'
+    'Z2S1 Logo Logo Z2S4'
+    'Z3S1 Auswahl Auswahl Z3S4'
+    'Z4S1 Button1 Button2 Z4S4';
+}
+.grid-item{
+
+}
+#info{
+  grid-area: Info;
+  color: black;
+  text-align: center;
+  font-size: 1.2em;
+}
+#connect{
+  fill: red;/*#1aa818 */;
+  text-align: center;
+  grid-area: Status;
+  margin-top: 5px;
+}
+#logo{
+  grid-area: Logo;
+  background-color: rgb(60, 57, 187);
+  text-align: center;
+}
+#auswahl{
+  background-color: white;;
+  grid-area: Auswahl;
+  overflow: hidden;
+}
+#auswahl ul{
+  list-style: none;
+  list-style-position: outside;
+  padding-left: 0px;
+}
+#auswahl li{
+  list-style: none;
+  list-style-position: outside;
+  margin-top: 10%;
+}
+#auswahl .button{
+  margin-top: 0;
+  width: 80%;
+  border-radius: 10px;
+}
+#button1{
+  grid-area: Button1;
+  text-align: center;
+}
+#button2{
+  grid-area: Button2;
+  text-align: center;
+}
+.button{
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0.5px;
+  border-radius: 5px;
+  text-align: center;
+  width: 130px;
+  height: 40px;
+  padding: 0 0 0 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 18%;
+  background-color: #0b9ff2;
+  border-color: white;
+}
+.button p{
+  margin-top: 10px;
+  color: white;
+}
+.button:active{
+  background-color: rgb(10, 87, 130);
+}
+.scroll{
+  overflow: auto;
+  height: 80%;
+  width: 102%;
+}
