@@ -7,6 +7,8 @@
     <title>m.worldwide</title>
     <link rel="stylesheet" type="text/css" href="../styles/mobile.css"/>
     <script src="../script/jquery-3.3.1.min.js"></script>
+    <script src="../script/hammer.js"></script>
+    <script src="../script/jquery.hammer.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="theme-color" content="#0b9ff2">
   </head>
@@ -32,15 +34,16 @@
         </svg>
       </div>
       <div class="grid-item" id="logo">
-          Logo
+          <img id="p" src="../icons/logo.png" alt="w#orldwide"/>
       </div>
       <div class="grid-item" id="auswahl">
         <div class="scroll">
           <?php
             $hashtaglist = ["Kaffee","#woldcup2018","#TGIF","#food","#travel","#fitness"];
             echo '<ul>';
+            echo '<li><div class="select"><p>&#8657;</p></div></li>';
             for($i = 0; $i < 6 ; $i++){
-              echo '<li><div class="button"><p>'.$hashtaglist[$i].'</p></div></li>';
+              echo '<li class="select" id="s'.$i.'"><p>'.$hashtaglist[$i].'</p></li>';
             }
             echo '</ul>';
           ?>
@@ -63,6 +66,23 @@
         setTimeout(function() {
           alert(i);
         }, 200);
+      });
+      $(document).ready(function(){
+        var objects = [];
+        for(var i=0; i < 6; i++){
+            var x = $("#s"+i+" p").offset();
+            objects[i] = x.top;
+        };
+        for(var j = 0; j<objects.length; j++){
+          var x = objects[j];
+          if(x <= objects[j+1]){
+            var k = j+1;
+            $("#s"+k).css(
+              "background-color", "grey"
+            );
+            console.log('1')
+          }
+        }
       });
     </script>
   </body>
