@@ -5,8 +5,8 @@
 <html>
   <head>
     <title>Worldwide</title>
-    <link rel="stylesheet" type="text/css" href="styles/index.css"/>
-    <script src="/script/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/index.css"/>
+    <script src="../script/jquery-3.3.1.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8"/>
   </head>
@@ -59,11 +59,11 @@
     ?>
     <div id="session">ID</div>
     <?php
-      include('libs/phpqrcode-master/qrlib.php');
-      $url = 'http://xampp.home/worldwide/mobile/mobile.php?sid='.$return_id;
-      QRcode::png($url, 'styles/code.png', QR_ECLEVEL_L, 4, 1);
+      include('../libs/phpqrcode-master/qrlib.php');
+      $url = 'http://localhost/worldwide/mobile/mobile.php?sid='.$return_id;
+      QRcode::png($url, 'qr/code.png', QR_ECLEVEL_L, 4, 1);
     ?>
-    <img src="styles/code.png"/>
+    <img src="qr/code.png"/>
     <div class="clear"></div>
     <div class="field" id="input1">
       <h1>Feld 1</h1>

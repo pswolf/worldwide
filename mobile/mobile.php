@@ -5,12 +5,13 @@
 <html>
   <head>
     <title>m.worldwide</title>
+    <link rel="shortcut icon" href="../icons/fav-icon.ico">
     <link rel="stylesheet" type="text/css" href="../styles/mobile.css"/>
     <script src="../script/jquery-3.3.1.min.js"></script>
     <script src="../script/hammer.js"></script>
     <script src="../script/jquery.hammer.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="theme-color" content="#0b9ff2">
+    <meta name="theme-color" content="#000000">
   </head>
   <body>
     <div id="container">
