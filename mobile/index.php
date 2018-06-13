@@ -60,7 +60,7 @@
     <div id="session">ID</div>
     <?php
       include('../libs/phpqrcode-master/qrlib.php');
-      $url = 'http://localhost/worldwide/mobile/mobile.php?sid='.$return_id;
+      $url = 'http://192.168.2.198/worldwide/mobile/mobile.php?sid='.$return_id;
       QRcode::png($url, 'qr/code.png', QR_ECLEVEL_L, 4, 1);
     ?>
     <img src="qr/code.png"/>

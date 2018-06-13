@@ -10,6 +10,7 @@
     <script src="../script/jquery-3.3.1.min.js"></script>
     <script src="../script/hammer.js"></script>
     <script src="../script/jquery.hammer.js"></script>
+    <script src="../script/mobile.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="theme-color" content="#000000">
   </head>
@@ -23,7 +24,7 @@
           if(isset($_GET['sid'])){
             $id = $_GET['sid'];
             $_SESSION['s_id'] = $id;
-            echo 'ID='.$id;
+            echo '<p>ID='.$id.'</p>';
           }
           else{
             echo 'error';
@@ -40,11 +41,20 @@
       <div class="grid-item" id="auswahl">
         <div class="scroll">
           <?php
-            $hashtaglist = ["Kaffee","#woldcup2018","#TGIF","#food","#travel","#fitness"];
+            $pdo = new PDO("mysql:host=localhost;dbname=worldwide","root","");
+            $statement = $pdo->prepare("SHOW COLUMNS FROM data");
+            $statement->execute();
+            $result = $statement->fetchAll();
+            $pdo = null;
+            $j = 0;
+            for($i=3; $i<count($result);$i++){
+              $hashtaglist[$j] = $result[$i][0];
+              $j = $j+1;
+            }
             echo '<ul>';
-            echo '<li><div class="select"><p>&#8657;</p></div></li>';
-            for($i = 0; $i < 6 ; $i++){
-              echo '<li class="select" id="s'.$i.'"><p>'.$hashtaglist[$i].'</p></li>';
+            echo '<li><div><p>&#8657;</p></div></li>';
+            for($i = 0; $i < count($hashtaglist) ; $i++){
+              echo '<li id="s'.$i.'"><p>'.$hashtaglist[$i].'</p></li>';
             }
             echo '</ul>';
           ?>
@@ -85,6 +95,20 @@
           }
         }
       });
+      $('.scroll li').click(function(){
+        var x = $(this).find('p').html();
+        var session = $('#sid').find('p').html();
+        console.log(x);
+        $.ajax({
+          type: "POST",
+          url: "../php-script/receive.php",
+          data: {click: x, sid: session},
+          success: function(data){
+            console.log(data);
+          }
+        });
+      });
+
     </script>
   </body>
 </html>

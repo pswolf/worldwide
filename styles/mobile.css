@@ -39,10 +39,16 @@ body{
   background-color: none;
   text-align: center;
 }
+#logo img{
+  width: 100%;
+  height: auto;
+  margin-top: 10%;
+}
 #auswahl{
   background-color: white;;
   grid-area: Auswahl;
   overflow: hidden;
+  text-align: center;
 }
 #auswahl ul{
   list-style: none;
@@ -54,11 +60,7 @@ body{
   list-style: none;
   list-style-position: outside;
 }
-#auswahl .button{
-  margin-top: 0;
-  width: 80%;
-  border-radius: 10px;
-}
+
 #button1{
   grid-area: Button1;
   text-align: center;
@@ -67,7 +69,7 @@ body{
   grid-area: Button2;
   text-align: center;
 }
-.button, .select{
+.button{
   box-sizing: border-box;
   border-style: solid;
   border-width: 0.5px;
@@ -82,7 +84,7 @@ body{
   background-color: #0b9ff2;
   border-color: white;
 }
-.button, .select p{
+.button{
   margin-top: 10px;
   color: white;
 }
@@ -91,29 +93,23 @@ body{
 }
 .scroll{
   overflow: auto;
-  height: 75%;
+  height: 78%;
   width: 102%;
   border-top: solid 1px;
   margin-top: 5%;
 }
-#p{
-  width: 100%;
-  height: auto;
-  margin-top: 10%;
+.scroll ul{
+  list-style: none;
 }
-.select{
-  font-size: 2em;
-  width: 90%;
-  margin-top: 10%;
-  background-color: grey;
-}
-.select p{
-  margin-top: 0;
-}
-.scroll ul li:nth-child(2) p{
+.scroll ul li{
   background-color: #0b9ff2;
+  width: 80%;
+  text-align: center;
+  margin-left: 9%;
+  font-size: 2em;
+  color: white;
+  border-radius: 10px;
 }
-
-.scroll ul li .select{
-  margin-top: 0px;
+.scroll ul li:nth-child(1){
+  background-color: grey;
 }
