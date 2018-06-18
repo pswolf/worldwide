@@ -21,5 +21,11 @@
     }
   };
   json_encode($sendJson);
-  echo $sendJson;
+  for($i = 0; $i < count($request); $i++){
+    for($j=0; $j<2;$j++){
+      echo $sendJson[$i][$j];
+    }
+    echo '<br>';
+  }
+  #print_r($sendJson);
 ?>
