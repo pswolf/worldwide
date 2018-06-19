@@ -85,6 +85,10 @@ html,body{
 #logo img{
   width: 80%;
 }
+#countdown{
+  grid-area: d;
+  color: white;
+}
 @media (orientation: landscape) {
   #container{
     grid-template-columns: 20% 30% 30% 20%;
