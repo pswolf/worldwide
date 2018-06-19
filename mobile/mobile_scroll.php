@@ -25,7 +25,7 @@
       <div id="scroll">
         <ul>
           <?php
-          $pdo = new PDO("mysql:host=dd28600.kasserver.com;dbname=d02a5e56","d02a5e56","ww!HFU2018");
+          $pdo = new PDO("mysql:host=dd28600.kasserver.com;dbname=d02a5e56","d02a5e56","***********");
           $statement = $pdo->prepare("SHOW COLUMNS FROM data");
           $statement->execute();
           $result = $statement->fetchAll();
