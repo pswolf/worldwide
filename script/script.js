@@ -5,6 +5,28 @@ var htData = [
     ["IT", "03:00"]
 ];
 
+function animateColor() {
+
+    function parse (str) {
+        return parseInt(str, 10);
+    }
+
+    function setAnimation (datum) {
+        var parts = datum[1].split(':').map(parse);
+        var time = parts[0] * 60 + parts[1];
+        $('#'+ datum[0]).css({
+            animation: "mymove 5s " + time + "s"
+        });
+        // On every browser that understands CSS animations
+        // you can avoid the use of jQuery with
+        // document.querySelector('#'+ datum[0]).style.animation = "mymove 5s " + time + "s";
+    }
+
+    htData.forEach(setAnimation);
+}
+
+
+/*
 //test map method
 var htData2 = ["DE", "CO", "US-3", "IT"];
 
