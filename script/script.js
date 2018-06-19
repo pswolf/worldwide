@@ -5,6 +5,18 @@ var htData = [
     ["IT", "03:00"]
 ];
 
+//test map method
+var htData2 = ["DE", "CO", "US-3", "IT"];
+
+function test() {
+  var htAkt = 0;
+  const land = htData2.map(x =>
+    x
+  );
+  console.log("htAkt= "+land);
+}
+
+//animation functioniert, aber nicht nacheienander:
 function animateColor() {
   //animation soll activiert werden
   //for schleife soll aufgerufen werden
@@ -21,7 +33,7 @@ function getIds(elem) {
     var htNow = htData[i][0];
     console.log("Daten For-Schleife: "+ htNow);
     $('#'+htNow).css({
-        animation: "mymove 5s infinite"
+        animation: "mymove 2s infinite"
       });
     return i;
   }
