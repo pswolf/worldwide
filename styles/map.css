@@ -63,3 +63,12 @@ svg{
 #Ebene_1 rect{
   fill: rgb(30, 58, 180);
 }
+
+#US-3{
+  
+}
+
+@keyframes mymove {
+    0%   {fill: rgb(30, 58, 180);}
+    100% {fill: rgb(255, 0, 0);}
+}
