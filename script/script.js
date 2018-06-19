@@ -1,5 +1,37 @@
+var htData = [
+    ["DE", "00:00"],
+    ["CO", "01:00"],
+    ["US-3", "02:00"],
+    ["IT", "03:00"]
+];
 
-function colorAnimation() {
+function animateColor() {
+  //animation soll activiert werden
+  //for schleife soll aufgerufen werden
+  var j = -1;
+  while(j < 3){
+  j = getIds(j);
+  console.log("animateColor: "+j);
+  }
+}
+
+function getIds(elem) {
+  //for-schleife soll durchlaufen werden
+  for (var i = elem+1; i < htData.length; i++) {
+    var htNow = htData[i][0];
+    console.log("Daten For-Schleife: "+ htNow);
+    $('#'+htNow).css({
+        animation: "mymove 5s infinite"
+      });
+    return i;
+  }
+}
+
+
+
+//Archiv:
+
+/*function colorAnimation() {
   var htData = [
       ["DE", "00:00"],
       ["CO", "01:00"],
@@ -11,26 +43,19 @@ function colorAnimation() {
     var htNow = htData[i][0];
     console.log("aeussere For-Schleife: "+ htNow);
 
-      $('#'+htNow).delay( 800 ).addClass('animated flash');
+      $('#'+htNow).css({
+          animation: "mymove 5s infinite"
+        });
       //https://www.youtube.com/watch?v=S2KCXKAView
   }
 
-};
+};*/
 
-
-
-function colorChange() {
-  var id = "";
-  id.css({
-    fill: "#ff0000",
-    transition: "2s"
-    });
-}
 
 
 //for (var i = 0; i < htData.length; i++){
-//  var htNow = htData[i][0];
-//console.log("aeussere For-Schleife: "+ htNow);
+  //var htNow = htData[i][0];
+  //console.log("aeussere For-Schleife: "+ htNow);
 
   //for (var j = 1; j < htData[i].length; j++) {
     //var htNow2 = htData[i][j];
