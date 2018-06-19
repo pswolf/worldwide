@@ -2,6 +2,7 @@ html,body{
   height: 100%;
   font-family: "Century Gothic";
   margin: 0 0 0 0;
+  overscroll-behavior: contain;
 }
 #container{
   display: grid;
@@ -47,6 +48,8 @@ html,body{
   margin-bottom: 0px;
   font-size: 2.4em;
   padding: 7%;
+  padding-left: 0;
+  padding-right: 0;
 }
 #hidden{
   display: none;
@@ -77,9 +80,10 @@ html,body{
 }
 #logo{
   grid-area: logo;
+  text-align: center;
 }
 #logo img{
-  width: 100%;
+  width: 80%;
 }
 @media (orientation: landscape) {
   #container{
