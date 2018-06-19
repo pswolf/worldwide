@@ -60,10 +60,6 @@ svg{
   margin-top: 2em;
 }
 
-#US-2, #US-3, #US-4,#US{
-  fill: #ffff99;
-}
-
-[data-name="FR"]{
-    fill: #ffff99;
+#Ebene_1 rect{
+  fill: rgb(30, 58, 180);
 }
