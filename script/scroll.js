@@ -40,3 +40,22 @@ $(document).ready(function() {
     };
   });
 });
+
+$(document).ready(function() {
+  $('#test').click(function(){
+    console.log('TEST');
+  var secs = 500;
+  var counter = setInterval(countdown, 1000);
+  function countdown(){
+    secs = secs-1;
+    if(secs <= 0){
+      clearIntervall(counter)
+      //Was passiert bei Ende des Countdowns
+    }
+    console.log(secs);
+    var minutes = Math.floor(secs);
+    console.log('Minutes'+minutes);
+    $("#countdown").html(secs);
+  }
+});
+});

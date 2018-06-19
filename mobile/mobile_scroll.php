@@ -16,13 +16,16 @@
   </head>
   <body>
     <div id="container">
+      <div id="countdown">
+        <button type="button" name="button" id="test">Test</button>
+      </div>
       <div id="logo">
         <img src="../pics/worldwide-white.png" alt="W#RLDWIDE"/>
       </div>
       <div id="scroll">
         <ul>
           <?php
-          $pdo = new PDO("mysql:host=dd28600.kasserver.com;dbname=d02a5e56","d02a5e56","************");
+          $pdo = new PDO("mysql:host=dd28600.kasserver.com;dbname=d02a5e56","d02a5e56","***********");
           $statement = $pdo->prepare("SHOW COLUMNS FROM data");
           $statement->execute();
           $result = $statement->fetchAll();
