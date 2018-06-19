@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Worlwide</title>
-    <link rel="shortcut icon" href="icons/fav-icon.ico">
+    <link rel="shortcut icon" href="pics/fav-icon.ico">
     <link rel="stylesheet" type="text/css" href="styles/map.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script/script.js"></script>
@@ -16,11 +16,9 @@
   <body>
     <div class="row">
       <div class="col-md-2">
-          <div id="logo"><img src="icons/logo.png" width="30%"/></div>
+          <div id="logo"><img src="pics/logo.png" width="30%"/></div>
       </div>
       <div class="col-md-8">
-        <div class="aktuell">Top-Hashtag</div>
-        <div class="aktuell">Zeit</div>
       </div>
       <div class="col-md-2"></div>
     </div>
@@ -46,9 +44,16 @@
       </div>
       <div class="col-md-2"></div>
     </div>
-    <div class="row">
-      <div class="col-md-11"><button onclick="animateColor();">Test faerben</button></div>
-      <div class="col-md-1"><img src="qrcode.png" id="qr-code" />
+    <div class="row" id="under">
+      <div class="col-md-2">
+        <button onclick="animateColor();">Test faerben</button>
+      </div>
+      <div class="col-md-8">
+        <div class="aktuell">Top-Hashtag</div>
+        <div class="aktuell">Zeit</div>
+      </div>
+      <div class="col-md-2">
+        <img src="qrcode.png" id="qr-code" />
       </div>
     </div>
   </body>
