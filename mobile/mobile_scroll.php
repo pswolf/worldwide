@@ -16,8 +16,47 @@
   </head>
   <body>
     <div id="container">
-      <div id="countdown">
-        <button type="button" name="button" id="test">Test</button>
+      <div id="connect">
+        <?php
+          $mapid = 111111; #$_GET['mapid'];
+          if(isset($_SESSION['deviceid'])){
+            $deviceid = $_SESSION['deviceid'];
+          }else {
+            $_SESSION['deviceid'] = rand(100, 999);
+            $deviceid = $_SESSION['deviceid'];
+          }
+          $pw = include('../php-script/pw.php');
+          $pdo = new PDO("mysql:host=dd28600.kasserver.com;dbname=d02a5e56","d02a5e56",$pw);
+          $statement = $pdo->prepare("SELECT deviceid, starttime FROM sessions WHERE mapid = :map");
+          $statement->bindParam(':map', $mapid);
+          $statement->execute();
+          $result = $statement->fetchAll();
+          $timestamp = time();
+          if($result[0][0]==0){
+            $statement = $pdo->prepare("UPDATE sessions SET deviceid=:device, starttime=:stamp WHERE mapid = :map");
+            $statement->execute(array('device' => $deviceid, 'stamp' => $timestamp, 'map' => $mapid));
+            $statement->execute();
+            echo 'Success';
+          }else {
+            $diff = $timestamp - $result[0][1];
+            if ($diff > 300) {
+              $statement = $pdo->prepare("UPDATE sessions SET deviceid=:device, starttime=:stamp WHERE mapid = :map");
+              $statement->execute(array('device' => $deviceid, 'stamp' => $timestamp, 'map' => $mapid));
+              $statement->execute();
+              $pdo = null;
+              echo 'Update';
+            }if ($diff < 300) {
+              echo 'Wait';
+            }
+          }
+        ?>
+      </div>
+      <div id="device">
+        <?php
+          echo $_SESSION['deviceid'];
+        ?>
+      </div>
+      <div id="countdown">Verbindszeit<br><p></p>
       </div>
       <div id="logo">
         <img src="../pics/worldwide-white.png" alt="W#RLDWIDE"/>
@@ -25,7 +64,8 @@
       <div id="scroll">
         <ul>
           <?php
-          $pdo = new PDO("mysql:host=dd28600.kasserver.com;dbname=d02a5e56","d02a5e56","***********");
+          $pw = include('../php-script/pw.php');
+          $pdo = new PDO("mysql:host=dd28600.kasserver.com;dbname=d02a5e56","d02a5e56",$pw);
           $statement = $pdo->prepare("SHOW COLUMNS FROM data");
           $statement->execute();
           $result = $statement->fetchAll();

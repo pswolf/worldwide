@@ -86,8 +86,20 @@ html,body{
   width: 80%;
 }
 #countdown{
-  grid-area: d;
+  grid-area: a;
   color: white;
+  text-align: center;
+}
+#countdown p{
+  margin: 0;
+}
+#connect{
+  grid-area: c;
+  color: white;
+}
+#device{
+  grid-area: d;
+  color:white;
 }
 @media (orientation: landscape) {
   #container{
