@@ -101,6 +101,10 @@ html,body{
   grid-area: d;
   color:white;
 }
+#mapid{
+  grid-area: b;
+  display: none;
+}
 @media (orientation: landscape) {
   #container{
     grid-template-columns: 20% 30% 30% 20%;

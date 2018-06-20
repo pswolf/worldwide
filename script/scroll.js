@@ -52,10 +52,11 @@ function scrolldown(){
   };
 };
 function longpollmobile(data){
+  var mapid = $('#mapid p').html();
   $.ajax({
     url: '../php-script/receive-mobile.php',
     type: 'POST',
-    data: {select: data, sid: '111111'}
+    data: {select: data, sid: mapid}
   })
   .done(function(result) {
     console.log(result);

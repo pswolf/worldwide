@@ -56,6 +56,11 @@
           echo $_SESSION['deviceid'];
         ?>
       </div>
+      <div id="mapid">
+        <?php
+          echo "<p>".$mapid."</p>";
+        ?>
+      </div>
       <div id="countdown">Verbindszeit<br><p></p>
       </div>
       <div id="logo">
