@@ -18,7 +18,7 @@
     <div id="container">
       <div id="connect">
         <?php
-          $mapid = 111111; #$_GET['mapid'];
+          $mapid = $_GET['id'];
           if(isset($_SESSION['deviceid'])){
             $deviceid = $_SESSION['deviceid'];
           }else {

@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <html>
   <head>
     <title>Worlwide</title>
@@ -53,7 +56,57 @@
         <div class="aktuell" id="uhrZeit">08:00 Uhr</div>
       </div>
       <div class="col-md-2">
-        <img src="qrcode.png" id="qr-code" />
+        <?php
+          function session_check($sessionid){   //Prüft ob diese SessionID bereits vergeben wurde
+            $pw = include('php-script/pw.php');
+            $pdo = new PDO("mysql:host=dd28600.kasserver.com;dbname=d02a5e56","d02a5e56",$pw);
+            $statement = $pdo->prepare("SELECT * FROM sessions WHERE mapid = :sessionid");
+            $statement->bindParam(':sessionid', $sessionid);
+            $statement->execute();
+            $anzahl = $statement->rowCount();
+            $pdo = null;
+            return $anzahl;
+          }
+          function session_new($sessionid){       //Registriert eine neue SessionID
+            $pw = include('php-script/pw.php');
+            $pdo = new PDO("mysql:host=dd28600.kasserver.com;dbname=d02a5e56","d02a5e56",$pw);
+            $new_session = array();
+            $new_session['id'] = $sessionid;
+            $statement = $pdo->prepare("INSERT INTO sessions (mapid) VALUES (:id)");
+            $statement->execute($new_session);
+            $pdo = null;
+            $_SESSION['s_id'] = $sessionid;
+            return $sessionid;
+          }
+          function session_init(){    //Initiiert Session
+            if(isset($_SESSION['s_id'])){
+              $sessionid = $_SESSION['s_id'];
+              return array($sessionid, $success=1);
+            }
+            else{
+              $sessionid = rand(100000, 999999);
+              $check = session_check($sessionid);
+              if($check == 0){
+                session_new($sessionid);
+                return array($sessionid, 1);
+              }
+              else{
+                return array(false, 0);
+              }
+            }
+          }   //Ende session_init
+          $return_success = 0;
+          if($return_success==0){
+            $return_init = session_init();
+            $return_id = $return_init[0];
+            $return_success = $return_init[1];
+          }
+          echo $return_id;
+          include('libs/phpqrcode-master/qrlib.php');
+          $url = 'http://www.project-worldwide.de/mobile/mobile_scroll.php?id='.$return_id;
+          QRcode::png($url, 'mobile/qr/code.png', QR_ECLEVEL_L, 4, 1);
+        ?>
+        <img src="mobile/qr/code.png" id="qr-code" />
       </div>
     </div>
   </body>
