@@ -15,11 +15,11 @@ function getdatabestime($id){
   function getCountrys($mapid){
     $pw = include('../php-script/pw.php');
     $pdo = new PDO("mysql:host=dd28600.kasserver.com;dbname=d02a5e56","d02a5e56",$pw);
-    $statement = $pdo->prepare("SELECT zeit, Option1 FROM sessions WHERE SessionID = :id");
-    $statement->execute(array('id' => $sid));
+    $statement = $pdo->prepare("SELECT zeit, Option1 FROM sessions WHERE mapid = :id");
+    $statement->execute(array('id' => $mapid));
     $result = $statement->fetchAll();
     $pdo = null;
-    $remotetime = $result[0][0].'</br>';
+    $remotetime = $result[0][0];
     $hashtag = $result[0][1];
     $hashtag = str_replace('#','',$hashtag);
     $pdo = new PDO("mysql:host=dd28600.kasserver.com;dbname=d02a5e56","d02a5e56",$pw);
@@ -36,4 +36,3 @@ function getdatabestime($id){
     return $sendJson;
   }//Ende get Countrys
 #-------------------------------------------------------------------------------------------------
-?>

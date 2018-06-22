@@ -32,11 +32,14 @@
           $statement->execute();
           $result = $statement->fetchAll();
           $timestamp = time();
-          if($result[0][0]==0){
+          if($result[0][0] == 0){
             $statement = $pdo->prepare("UPDATE sessions SET deviceid=:device, starttime=:stamp WHERE mapid = :map");
             $statement->execute(array('device' => $deviceid, 'stamp' => $timestamp, 'map' => $mapid));
             $statement->execute();
             echo 'Success';
+          };
+          if ($result[0][0] == $deviceid) {
+            echo 'Connected';
           }else {
             $diff = $timestamp - $result[0][1];
             if ($diff > 300) {
@@ -48,7 +51,7 @@
             }if ($diff < 300) {
               echo 'Wait';
             }
-          }
+          };
         ?>
       </div>
       <div id="device">

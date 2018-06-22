@@ -82,6 +82,9 @@ svg{
 #Ebene_1 rect{
   fill: rgb(30, 58, 180);
 }
+#mapid p{
+  display: none;
+}
 
 #US-3{
 

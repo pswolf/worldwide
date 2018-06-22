@@ -8,5 +8,5 @@
     $dbtime = getdatabestime($mapid);
   }
   $jsonclient = getCountrys($mapid);
-  return json_encode(array($dbtime, $jsonclient));
+  echo json_encode(array($dbtime, $jsonclient));
 ?>
