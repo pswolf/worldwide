@@ -32,7 +32,7 @@ function getdatabestime($id){
         $sendJson[$i][$j] = $request[$i][$j];
       }
     };
-    json_encode($sendJson);
-    return $sendJson;
+    $send = json_encode(array($hashtag, $sendJson));
+    return $send;
   }//Ende get Countrys
 #-------------------------------------------------------------------------------------------------

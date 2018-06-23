@@ -6,7 +6,8 @@
   while ($dbtime <= $maptime) {
     sleep(5);
     $dbtime = getdatabestime($mapid);
+    set_time_limit(0);
   }
   $jsonclient = getCountrys($mapid);
-  echo json_encode(array($dbtime, $jsonclient));
+  echo $jsonclient;
 ?>
