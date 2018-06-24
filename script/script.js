@@ -39,15 +39,30 @@ function longpolling(){
 function animateData(json){
   console.log('Success');
   var data = JSON.parse(json);
-  var hashtag = data[0];
-  $('#hashTag').html("#"+hashtag);
-  var countrys = data[1];
+  var arr = new Array();
+  for(var i=0; i<24; i++){
+    arr[i] = data.filter(function(el) {
+      return el.zeit == i;
+    })
+  };
+  console.log(arr);
   var timer = 0;
-  $.each(countrys, function (index, value) {
+  var i = 0;
+  $.each(arr, function (index, value) {
     setTimeout(function() {
-      $('#'+value[0]+" rect").css("fill", "red");
-      $('#uhrZeit').html(countrys[index][1]+" Uhr");
-  }, timer);
-  timer += 100;
+      if(index > 0){
+        for(var i = 0; i<arr[index-1].length; i++){
+          var elem = arr[index-1][i].land;
+          $('#'+elem+' rect').css('fill', 'rgb(30, 58, 180)');
+        };
+      };
+      for(var i = 0; i<arr[index].length; i++){
+        var elem = arr[index][i].land;
+        var zeit = arr[index][i].zeit;
+        $('#'+elem+' rect').css('fill', 'red');
+        $('#uhrZeit').html(zeit+':00 Uhr');
+      }
+    }, timer);
+    timer += 1000;
   });
 }

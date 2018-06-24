@@ -27,12 +27,12 @@ function getdatabestime($id){
     $statement->execute(array('hashtag' => $hashtag));
     $request = $statement->fetchAll();
     $pdo = null;
+    $ar = array();
     for($i = 0; $i < count($request); $i++){
-      for($j=0; $j<2;$j++){
-        $sendJson[$i][$j] = $request[$i][$j];
-      }
+      $ar[$i]['land'] = $request[$i][0];
+      $ar[$i]['zeit'] = $request[$i][1];
     };
-    $send = json_encode(array($hashtag, $sendJson));
-    return $send;
+    $b = json_encode($ar);
+    return $b;
   }//Ende get Countrys
 #-------------------------------------------------------------------------------------------------

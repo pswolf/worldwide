@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/mobile_scroll.css">
     <link rel="shortcut icon" href="../pics/fav-icon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
     <script src="../script/jquery-3.3.1.min.js" charset="utf-8"></script>
     <script src="../script/scroll.js" charset="utf-8"></script>
     <script src="../script/jquery.mobile-events.min.js" charset="utf-8"></script>
