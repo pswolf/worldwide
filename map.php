@@ -37,13 +37,13 @@
       <div class="col-sm-2 col-md-2 col-lg-2"></div>
     </div>
     <div class="row" id="under">
-      <div class="col-sm-1 col-md-1 col-lg-1">
+      <div class="col-sm-2 col-md-2 col-lg-2">
       </div>
-      <div class="col-sm-10 col-md-10 col-lg-10">
+      <div class="col-sm-8 col-md-8 col-lg-8">
         <div class="aktuell" id="hashTag">#coffee</div>
         <div class="aktuell" id="uhrZeit">08:00 Uhr</div>
       </div>
-      <div class="col-sm-1 col-md-1 col-lg-1" id="mapid">
+      <div class="col-sm-2 col-md-2 col-lg-2" id="mapid">
         <?php
           function session_check($sessionid){   //Prüft ob diese SessionID bereits vergeben wurde
             $pw = include('php-script/pw.php');

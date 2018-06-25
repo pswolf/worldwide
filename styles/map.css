@@ -37,7 +37,6 @@ svg{
 
 .aktuell{
   display: inline-block;
-  margin-top: 0.5em;
   font-size: 30;
   font-weight: 600;
   color: #999;
@@ -49,10 +48,12 @@ svg{
 
 #hashTag{
   text-align: right;
+  font-size: 2.5em;
 }
 
 #uhrZeit{
   text-align: left;
+  font-size: 2.5em;
 }
 
 .col-md-8{
@@ -68,9 +69,9 @@ svg{
 }
 
 #qr-code{
-  width: 30%;
+  width: 40%;
   margin-left: 8em;
-  margin-top: 2em;
+  margin-top: 1em;
 }
 
 #testButton{
@@ -85,6 +86,6 @@ svg{
 
 
 @keyframes mymove {
-    0%   {fill: rgb(30, 58, 180);}
-    100% {fill: rgb(255, 0, 0);}
+    0%   {fill: #0B3F57;}
+    100% {fill: #1e9cd7;}
 }
