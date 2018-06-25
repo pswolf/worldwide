@@ -99,10 +99,10 @@
         </ul>
       </div>
       <div id="but1">
-          <button class="mode">RANDOM</button>
+          <button class="mode" id="random">RANDOM</button>
       </div>
       <div id="but2">
-          <button class="mode">ECHTZEIT</button>
+          <button class="mode" id="realtime">ECHTZEIT</button>
       </div>
     </div>
   </body>

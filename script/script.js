@@ -50,16 +50,16 @@ function animateData(json){
   var i = 0;
   $.each(arr, function (index, value) {
     setTimeout(function() {
-      if(index > 0){
+      /*if(index > 0){
         for(var i = 0; i<arr[index-1].length; i++){
           var elem = arr[index-1][i].land;
           $('#'+elem+' rect').css('fill', 'rgb(30, 58, 180)');
         };
-      };
+      };*/
       for(var i = 0; i<arr[index].length; i++){
         var elem = arr[index][i].land;
         var zeit = arr[index][i].zeit;
-        $('#'+elem+' rect').css('fill', 'red');
+        $('#'+elem+' rect').css('animation', 'mymove 5s');
         $('#uhrZeit').html(zeit+':00 Uhr');
       }
     }, timer);

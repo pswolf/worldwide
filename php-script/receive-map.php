@@ -4,7 +4,7 @@
   $mapid = $_POST['mapid'];
   $dbtime = getdatabestime($mapid);
   while ($dbtime <= $maptime) {
-    sleep(5);
+    sleep(2);
     $dbtime = getdatabestime($mapid);
     set_time_limit(0);
   }

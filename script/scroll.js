@@ -7,6 +7,10 @@ $(document).ready(function() {
     var content = scrolldown();
     longpollmobile(content);
   });
+  $('#realtime').click(function(){
+    console.log('Log1');
+    sendrealtime();
+  });
 });
 
 function scrollup(){
@@ -68,6 +72,24 @@ function longpollmobile(data){
     console.log("complete");
   });
 };
+
+function sendrealtime(){
+  var mapid = $('#mapid p').html();
+  $.ajax({
+    url: '../php-script/receive-mobile.php',
+    type: 'POST',
+    data: {select: 'realtime', sid: mapid}
+  })
+  .done(function() {
+    console.log("success");
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+}
 
 $(document).ready(function() {
   $('#test').ready(function(){
