@@ -32,17 +32,15 @@
         $y[$i]['volume'] = $string[0]['trends'][$i]['tweet_volume'];
       }
     };
+    $timestamp = 1529980198;
     $pw = include('../php-script/pw.php');
     $pdo = new PDO("mysql:host=dd28600.kasserver.com;dbname=d02a5e56","d02a5e56",$pw);
     $statement = $pdo->prepare("DELETE FROM twitter");
     $statement->execute();
-    $statement = $pdo->prepare("INSERT INTO twitter (woeid, short, volume, hashtag) VALUES ('0', '0', '0')");
-    for($i=1; $i<count($y); $i++{
-      $statement = $pdo->prepare("UPDATE twitter SET email = :email_neu WHERE id = :id");
-    })
-
-    $statement->execute(array('id' => $mapid));
-    $result = $statement->fetchAll();
+    $statement = $pdo->prepare("INSERT INTO twitter (woeid, short, volume, hashtag) VALUES ('0', '0', '0', :now)");
+    $statement -> bindParam(':now', $timestamp );
+    $statement->execute();
     $pdo = null;
+    return $y;
   }
 ?>
