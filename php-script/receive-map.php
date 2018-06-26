@@ -2,12 +2,20 @@
   include 'functions.php';
   $maptime = $_POST['maptime'];
   $mapid = $_POST['mapid'];
-  $dbtime = getdatabestime($mapid);
+  $dbdata = getdatabestime($mapid);
+  $dbtime = $dbdata[0]['zeit'];
   while ($dbtime <= $maptime) {
-    sleep(2);
-    $dbtime = getdatabestime($mapid);
+    sleep(5);
+    $dbdata = getdatabestime($mapid);
+    $dbtime = $dbdata[0]['zeit'];
     set_time_limit(0);
   }
-  $jsonclient = getCountrys($mapid);
+  $mode = $dbdata[0]['modus'];
+  if($mode == 0){
+    $jsonclient = getCountrys($mapid);
+  }
+  if($mode == 1){
+    $jsonclient = getTwitter($mapid);
+  }
   echo $jsonclient;
 ?>

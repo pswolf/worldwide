@@ -7,10 +7,10 @@ $(document).ready(function() {
     var content = scrolldown();
     longpollmobile(content);
   });
-  $('#realtime').click(function(){
+  /*$('#realtime').click(function(){
     console.log('Log1');
     sendrealtime();
-  });
+  });*/
 });
 
 function scrollup(){

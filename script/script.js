@@ -30,7 +30,10 @@ function longpolling(){
     data: {maptime: time, mapid: id},
     success: function (json){
       animateData(json);
-      longpolling();
+      setTimeout(function(){
+        longpolling();
+      }, 20000);
+
     },
     timeout: 0,
   });
@@ -38,31 +41,30 @@ function longpolling(){
 //--------------------------------------------------------------//
 function animateData(json){
   console.log('Success');
-  var data = JSON.parse(json);
-  var arr = new Array();
-  for(var i=0; i<24; i++){
-    arr[i] = data.filter(function(el) {
-      return el.zeit == i;
-    })
-  };
-  console.log(arr);
-  var timer = 0;
-  var i = 0;
-  $.each(arr, function (index, value) {
-    setTimeout(function() {
-      /*if(index > 0){
-        for(var i = 0; i<arr[index-1].length; i++){
-          var elem = arr[index-1][i].land;
-          $('#'+elem+' rect').css('fill', 'rgb(30, 58, 180)');
-        };
-      };*/
-      for(var i = 0; i<arr[index].length; i++){
-        var elem = arr[index][i].land;
-        var zeit = arr[index][i].zeit;
-        $('#'+elem+' rect').css('animation', 'mymove 5s');
-        $('#uhrZeit').html(zeit+':00 Uhr');
-      }
-    }, timer);
-    timer += 1000;
-  });
+  var data1 = JSON.parse(json);
+  if(data1['modus'] == 'std') {
+    var data = data1['data'];
+    var hashtag = data1['hashtag'];
+    var arr = new Array();
+    for(var i=0; i<24; i++){
+      arr[i] = data.filter(function(el) {
+        return el.zeit == i;
+      })
+    };
+    console.log(arr);
+    var timer = 0;
+    var i = 0;
+    $.each(arr, function (index, value) {
+      setTimeout(function() {
+        for(var i = 0; i<arr[index].length; i++){
+          var elem = arr[index][i].land;
+          var zeit = arr[index][i].zeit;
+          $('#'+elem+' rect').css('animation', 'mymove 5s');
+        }
+        $('#uhrZeit').html(index+':00 Uhr');
+        $('#hashTag').html('#'+hashtag);
+      }, timer);
+      timer += 1000;
+    });
+  }
 }
