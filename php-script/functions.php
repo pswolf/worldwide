@@ -40,25 +40,24 @@
 #Funktion 3: Abfrage der Echtzeitdaten von TwitterAPIExchange
   function getTwitter($mid){
     include 'twitter-request.php';
-    $pw = include('../php-script/pw.php');
-    $pdo = new PDO("mysql:host=dd28600.kasserver.com;dbname=d02a5e56","d02a5e56",$pw);
-    $statement = $pdo->prepare("SELECT hashtag FROM twitter WHERE id = 0");
-    $statement->execute();
-    $result = $statement->fetchAll();
-    $pdo = null;
-    $lastupdate = $result[0]['hashtag'];
+    $data = json_decode(file_get_contents('twitterdata.json'), true);
+    $lastupdate = $data['update'];
     $timestamp = time();
     if($lastupdate+3600 < $timestamp){    //Wenn Datenbankzeit + 1h kleiner als jetzt ist dann update Datenbank
-      $ar = UpdateTwitter();
+      UpdateTwitter();
+      $data = json_decode(file_get_contents('twitterdata.json'), true);
     }
-    print_r($ar);
-
-    /*
-    $pdo = new PDO("mysql:host=dd28600.kasserver.com;dbname=d02a5e56","d02a5e56",$pw);
-    $statement = $pdo->prepare("SELECT short, volume, hashtag FROM twitter");
-    $statement->execute();
-    $request = $statement->fetchAll();
-    $pdo = null;
-    return $request; */
+    $d = $data['data'];
+    $m = $data['modus'];
+    $a = array('data' => $d, 'modus'=> $m);
+    return json_encode($a);
+  }
+#--------------------------------------------------------------------------------------------------
+#Funktion 4: Abfrage eines Arrays mit allen ID's der Karte
+  function getRandom(){
+    $a = include('wd-data.php');
+    $b = array('data' => $a, 'modus' => '2');
+    $c = json_encode($b);
+    return($c);
   }
 ?>

@@ -17,5 +17,8 @@
   if($mode == 1){
     $jsonclient = getTwitter($mapid);
   }
+  if($mode == 2){
+    $jsonclient = getRandom();
+  }
   echo $jsonclient;
 ?>
