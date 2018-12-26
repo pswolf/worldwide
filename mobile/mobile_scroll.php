@@ -37,7 +37,7 @@
             $statement = $pdo->prepare("UPDATE sessions SET deviceid=:device, starttime=:stamp WHERE mapid = :map");
             $statement->execute(array('device' => $deviceid, 'stamp' => $timestamp, 'map' => $mapid));
             $statement->execute();
-            echo 'Success';
+            echo 'Connected';
           };
           if ($result[0][0] == $deviceid) {
             echo 'Connected';

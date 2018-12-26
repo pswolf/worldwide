@@ -1,14 +1,6 @@
 <?php
 $arr = array(
 	array(
-		'Land' => 'Afghanistan',
-		'ID' => 23424739,
-		'Short' => 'AF'),
-	array(
-		'Land' => 'Anguilla',
-		'ID' => 23424751,
-		'Short' => 'AI'),
-	array(
 		'Land' => 'Angola',
 		'ID' => 23424745,
 		'Short' => 'AO'),
@@ -28,10 +20,6 @@ $arr = array(
 		'Land' => 'Belgium',
 		'ID' => 23424757,
 		'Short' => 'BE'),
-	array(
-		'Land' => 'Bolivia',
-		'ID' => 23424762,
-		'Short' => 'BO'),
 	array(
 		'Land' => 'Brazil',
 		'ID' => 23424768,
@@ -53,17 +41,9 @@ $arr = array(
 		'ID' => 23424957,
 		'Short' => 'CI'),
 	array(
-		'Land' => 'Cameroon',
-		'ID' => 23424785,
-		'Short' => 'CN'),
-	array(
 		'Land' => 'Germany',
 		'ID' => 23424829,
 		'Short' => 'DE'),
-	array(
-		'Land' => 'Djibouti',
-		'ID' => 23424797,
-		'Short' => 'DJ'),
 	array(
 		'Land' => 'Denmark',
 		'ID' => 23424796,
@@ -133,10 +113,6 @@ $arr = array(
 		'ID' => 23424848,
 		'Short' => 'IN'),
 	array(
-		'Land' => 'Iraq',
-		'ID' => 23424855,
-		'Short' => 'IQ'),
-	array(
 		'Land' => 'Italy',
 		'ID' => 23424853,
 		'Short' => 'IT'),
@@ -149,10 +125,6 @@ $arr = array(
 		'ID' => 23424868,
 		'Short' => 'KR'),
 	array(
-		'Land' => 'Lithuania',
-		'ID' => 23424875,
-		'Short' => 'LT'),
-	array(
 		'Land' => 'Latvia',
 		'ID' => 23424874,
 		'Short' => 'LV'),
@@ -164,10 +136,6 @@ $arr = array(
 		'Land' => 'Malaysia',
 		'ID' => 23424901,
 		'Short' => 'MY'),
-	array(
-		'Land' => 'New Caledonia',
-		'ID' => 23424903,
-		'Short' => 'NC'),
 	array(
 		'Land' => 'Nigeria',
 		'ID' => 23424908,
@@ -221,10 +189,6 @@ $arr = array(
 		'ID' => 23424954,
 		'Short' => 'SE'),
 	array(
-		'Land' => 'Slovenia',
-		'ID' => 23424945,
-		'Short' => 'SI'),
-	array(
 		'Land' => 'Chad',
 		'ID' => 23424777,
 		'Short' => 'TD'),
@@ -240,10 +204,6 @@ $arr = array(
 		'Land' => 'Tuvalu',
 		'ID' => 23424970,
 		'Short' => 'TV'),
-	array(
-		'Land' => 'Tanzania',
-		'ID' => 23424973,
-		'Short' => 'TZ'),
 	array(
 		'Land' => 'United States',
 		'ID' => 23424977,
